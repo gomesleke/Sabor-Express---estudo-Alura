@@ -2,6 +2,12 @@
 #passo a passo
 import time
 import os
+#fora das funções == global
+list_restaurants=[]
+
+
+
+
 
 def name_program():
     print("""
@@ -28,18 +34,29 @@ def invalid():
     input('Digite uma tecla para voltar ao menu: ')
     main()
 
+def sign_up():
+    os.system('cls')
+    print("""𝘾𝙖𝙙𝙖𝙨𝙩𝙧𝙤 𝙙𝙚 𝙣𝙤𝙫𝙤𝙨 𝙍𝙚𝙨𝙩𝙖𝙪𝙧𝙖𝙣𝙩𝙚𝙨\n""")
+    name_restaurant=input("Digite o nome do restaurante para cadastro: ")
+    list_restaurants.append(name_restaurant)
+    print(f'O restaurante {name_restaurant} foi cadastrado com sucesso')
+    input('Digite uma tecla para voltar ao menu: ')
+    main()
+
+
 def escolha_opcao():
     try:
         opcao_escolha=int(input('Escolha uma opção: ')) #sei_la -> snake case (variavel e afins)
-
 
         #bool na escolha
         match opcao_escolha:
 
             case 1: 
                 print('Cadrastrar Restaurante')
+                sign_up()
             case 2:
                 print('Listar Restaurantes')
+                print(list_restaurants)
             case 3: 
                 print('Ativar Restaurantes')
             case 4:
