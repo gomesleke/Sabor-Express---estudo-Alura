@@ -28,16 +28,18 @@ def escolha_opcao():
 
 
     #bool na escolha
+    match opcao_escolha:
 
-
-    if opcao_escolha==1:
-        print('Cadrastrar Restaurante')
-    elif opcao_escolha==2:
-        print('Listar Restaurantes')
-    elif opcao_escolha==3:
-        print('Ativar Restaurantes')
-    else:
-        exit_app()
+        case 1: 
+            print('Cadrastrar Restaurante')
+        case 2:
+            print('Listar Restaurantes')
+        case 3: 
+            print('Ativar Restaurantes')
+        case 4:
+            exit_app()
+        case _:
+            print("Inválido")
 
 def main(): #controla ordem do projeto (para manutenção)
     name_program()
@@ -45,5 +47,5 @@ def main(): #controla ordem do projeto (para manutenção)
     escolha_opcao()
 
 
-if __name__=='__main__':  
+if __name__=='__main__':  # arquivo principal
     main()
