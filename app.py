@@ -3,7 +3,10 @@
 import time
 import os
 #fora das funções == global
-list_restaurants=['Pizza da quebrada','Bololo do burger'] #database
+list_restaurants=[{'nome':'Japones do Japao', 'categoria':'Japonesa','ativo':False},
+                  {'nome':'PizzaMil','categoria':'Italiana','ativo':True},
+                  {'nome':'McRonald','categoria':'Fastfood','ativo':False}
+                  ] #dicionário // função nova estudada
 
 
 def name_program():
@@ -54,7 +57,10 @@ def list_print():
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▄ ██▄ ▄█ █▀█ █▄█ ░█░ █▀▄ █▀█ █░▀█ ░█░ ██▄ ▄█\n""")
     
     for restaurant in list_restaurants:
-        print(f'.{restaurant}')
+        name_print=restaurant['nome']
+        category_print=restaurant['categoria']
+        status_print=restaurant['ativo']
+        print(f'-{name_print}||{category_print}||{status_print}')
     
     back_to_menu()
 
