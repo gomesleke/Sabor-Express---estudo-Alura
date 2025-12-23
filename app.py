@@ -6,9 +6,6 @@ import os
 list_restaurants=['Pizza da quebrada','Bololo do burger'] #database
 
 
-
-
-
 def name_program():
     print("""
 █▀ ▄▀█ █▄▄ █▀█ █▀█   █▀▀ ▀▄▀ █▀█ █▀█ █▀▀ █▀ █▀
@@ -29,10 +26,13 @@ def exit_app(): #função de saida
         time.sleep(1)
         repete+=1
 
-def invalid():
-    print('Opção Inválida\n')
+def back_to_menu():
     input('Digite uma tecla para voltar ao menu: ')
     main()
+
+def invalid():
+    print('Opção Inválida\n')
+    back_to_menu()
 
 def sign_up():
     os.system('cls')
@@ -45,8 +45,7 @@ def sign_up():
     name_restaurant=input("Digite o nome do restaurante para cadastro: ")
     list_restaurants.append(name_restaurant)
     print(f'O restaurante {name_restaurant} foi cadastrado com sucesso')
-    input('Digite uma tecla para voltar ao menu: ')
-    main()
+    back_to_menu()
 
 def list_print():
     os.system('cls')
@@ -57,10 +56,7 @@ def list_print():
     for restaurant in list_restaurants:
         print(f'.{restaurant}')
     
-    
-    
-    input('Digite uma tecla para voltar ao menu: ')
-    main()
+    back_to_menu()
 
 def escolha_opcao():
     try:
