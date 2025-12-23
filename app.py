@@ -10,17 +10,30 @@ list_restaurants=[{'nome':'Japones do Japao', 'categoria':'Japonesa','ativo':Fal
 
 
 def name_program():
+    '''
+    Esse função apenas exibe o nome do app/site
+    '''
+
     print("""
 █▀ ▄▀█ █▄▄ █▀█ █▀█   █▀▀ ▀▄▀ █▀█ █▀█ █▀▀ █▀ █▀
 ▄█ █▀█ █▄█ █▄█ █▀▄   ██▄ █░█ █▀▀ █▀▄ ██▄ ▄█ ▄█\n""")
 
-def options():  
+def options(): 
+    '''
+    Esta função mostras as opções de acesso
+    '''
+
     print('1. Cadastrar Restaurante')
     print('2. Listar Restaurantes')
     print('3. Ativar Restaurantes')
     print('4. Sair\n')
 
 def exit_app(): #função de saida
+    '''
+    Essa função tem com objetivo sair do app/site. 
+    Ela tem sistema que simula a saida do usuário através do while
+    '''
+
     repete=0
     os.system('cls') # essa biblioteca limpa o terminal os.system('cls')
 
@@ -30,14 +43,32 @@ def exit_app(): #função de saida
         repete+=1
 
 def back_to_menu():
+    '''
+    Função que volta pro sisteam de escolhas do menu
+    '''
     input('Digite uma tecla para voltar ao menu: ')
     main()
 
 def invalid():
+    '''
+    Para mostrar que a opção escolhida é inválida
+    (essa função surge como forma de otimizar o código)
+    '''
     print('Opção Inválida\n')
     back_to_menu()
 
 def sign_up():
+    '''
+    Basicamente essa função serve para cadrastrar restaurantes na lista, linha #6
+
+    input:
+    nome do restaurante
+    categoria do restaurante
+
+    output:
+    adicona resturanrte na lista
+    '''
+
     os.system('cls')
     print("""
 █▀▀ ▄▀█ █▀▄ ▄▀█ █▀ ▀█▀ █▀█ █▀█   █▀▄ █▀▀   █▄░█ █▀█ █░█ █▀█ █▀
@@ -55,6 +86,9 @@ def sign_up():
     back_to_menu()
 
 def list_print():
+    '''
+    Mostra os resuratntes listados por nome/categoria/status de ativação
+    '''
     os.system('cls')
     print("""
 █░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀▀ █▀ ▄▀█ █░█ ▀█▀ █▀█ ▄▀█ █▄░█ ▀█▀ █▀▀ █▀
@@ -70,6 +104,17 @@ def list_print():
     back_to_menu()
 
 def activate_status():
+    '''
+    Ativa ou destativa um restaurante do sistema
+
+    input:
+    nome do retaurante
+    sistema de busca
+
+    output:
+    expressar se há o restaurante buscado
+    ativar ou desativar
+    '''
     os.system('cls')
     print('''
 ▄▀█ ▀█▀ █▀▀ █▀█ ▄▀█ █▄░█ █▀▄ █▀█   █▀▀ █▀ ▀█▀ ▄▀█ █▀▄ █▀█   █▀▄ █▀█   █▀█ █▀▀ █▀ ▀█▀ ▄▀█ █░█ █▀█ ▄▀█ █▄░█ ▀█▀ █▀▀
@@ -100,6 +145,9 @@ def activate_status():
     back_to_menu()
 
 def escolha_opcao():
+    '''
+    Sistema de escolha do app/site
+    '''
     try:
         opcao_escolha=int(input('Escolha uma opção: ')) #sei_la -> snake case (variavel e afins)
 
@@ -120,6 +168,9 @@ def escolha_opcao():
         invalid()
 
 def main(): #controla ordem do projeto (para manutenção)
+    '''
+    Esta função oderna todo o sistema
+    '''
     os.system('cls')
     name_program()
     options()
