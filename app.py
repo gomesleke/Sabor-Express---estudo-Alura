@@ -60,11 +60,12 @@ def list_print():
 █░░ █ █▀ ▀█▀ ▄▀█   █▀▄ █▀▀   █▀█ █▀▀ █▀ ▄▀█ █░█ ▀█▀ █▀█ ▄▀█ █▄░█ ▀█▀ █▀▀ █▀
 █▄▄ █ ▄█ ░█░ █▀█   █▄▀ ██▄   █▀▄ ██▄ ▄█ █▀█ █▄█ ░█░ █▀▄ █▀█ █░▀█ ░█░ ██▄ ▄█\n""")
     
+    print(f'{'Nome do Restaurante'.ljust(21)}||{'Categoria'.ljust(20)}||{'Status'}')
     for restaurant in list_restaurants:
         name_print=restaurant['nome']
         category_print=restaurant['categoria']
-        status_print=restaurant['ativo']
-        print(f'-{name_print}||{category_print}||{status_print}')
+        status_print='ativo' if restaurant['ativo'] else 'desativado' #ternário
+        print(f'-{name_print.ljust(20)}||{category_print.ljust(20)}||{status_print.ljust(20)}')
     
     back_to_menu()
 
