@@ -68,6 +68,27 @@ def list_print():
     
     back_to_menu()
 
+def activate_status():
+    os.system('cls')
+    print('''
+▄▀█ ▀█▀ █▀▀ █▀█ ▄▀█ █▄░█ █▀▄ █▀█   █▀▀ █▀ ▀█▀ ▄▀█ █▀▄ █▀█   █▀▄ █▀█   █▀█ █▀▀ █▀ ▀█▀ ▄▀█ █░█ █▀█ ▄▀█ █▄░█ ▀█▀ █▀▀
+█▀█ ░█░ ██▄ █▀▄ █▀█ █░▀█ █▄▀ █▄█   ██▄ ▄█ ░█░ █▀█ █▄▀ █▄█   █▄▀ █▄█   █▀▄ ██▄ ▄█ ░█░ █▀█ █▄█ █▀▄ █▀█ █░▀█ ░█░ ██▄
+''')
+    name_restaurant=input('Digite o nome do restaurante para alterar o Status: ')
+    share_restaurant=False
+
+    for restaurant in list_restaurants:
+        if name_restaurant==restaurant['nome']:
+            share_restaurant=True
+            restaurant['ativo']=not restaurant['ativo']
+            #ternário
+            mensagem=f'O restaurante {name_restaurant} foi ativado.' if restaurant['ativo'] else f'O restaurante {name_restaurant} foi desativado.' 
+            print(mensagem)
+    if not share_restaurant:
+        print('Seu restaurante não está no sistema')
+
+    back_to_menu()
+
 def escolha_opcao():
     try:
         opcao_escolha=int(input('Escolha uma opção: ')) #sei_la -> snake case (variavel e afins)
@@ -75,14 +96,12 @@ def escolha_opcao():
         #bool na escolha
         match opcao_escolha:
 
-            case 1: 
-                print('Cadrastrar Restaurante')
+            case 1:
                 sign_up()
             case 2:
-                print('Listar Restaurantes')
                 list_print()
             case 3: 
-                print('Ativar Restaurantes')
+                activate_status()
             case 4:
                 exit_app()
             case _:
