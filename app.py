@@ -6,7 +6,7 @@ import os
 list_restaurants=[{'nome':'Japones do Japao', 'categoria':'Japonesa','ativo':False},
                   {'nome':'PizzaMil','categoria':'Italiana','ativo':True},
                   {'nome':'McRonald','categoria':'Fastfood','ativo':False}
-                  ] #dicionário // função nova estudada
+                  ] #lista de dicionarios // função nova estudada
 
 
 def name_program():
@@ -45,8 +45,12 @@ def sign_up():
 
 █▀█ █▀▀ █▀ ▀█▀ ▄▀█ █░█ █▀█ ▄▀█ █▄░█ ▀█▀ █▀▀ █▀
 █▀▄ ██▄ ▄█ ░█░ █▀█ █▄█ █▀▄ █▀█ █░▀█ ░█░ ██▄ ▄█\n""")
-    name_restaurant=input("Digite o nome do restaurante para cadastro: ")
-    list_restaurants.append(name_restaurant)
+    name_restaurant=input('Digite o nome do restaurante para cadastro: ')
+    category_restaurant=input(f'Digite a categoria do {name_restaurant}: ')
+    
+    database_restaurant={'nome':name_restaurant,'categoria':category_restaurant,'ativo':False} #dicionario do cadastro // sempre false o ativo
+    list_restaurants.append(database_restaurant)
+
     print(f'O restaurante {name_restaurant} foi cadastrado com sucesso')
     back_to_menu()
 
