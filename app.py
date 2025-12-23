@@ -76,14 +76,23 @@ def activate_status():
 ''')
     name_restaurant=input('Digite o nome do restaurante para alterar o Status: ')
     share_restaurant=False
+    repete=0
 
     for restaurant in list_restaurants:
         if name_restaurant==restaurant['nome']:
             share_restaurant=True
             restaurant['ativo']=not restaurant['ativo']
-            #ternário
-            mensagem=f'O restaurante {name_restaurant} foi ativado.' if restaurant['ativo'] else f'O restaurante {name_restaurant} foi desativado.' 
-            print(mensagem)
+
+            process=f'Ativando...' if restaurant['ativo'] else f'Desativando...'
+        
+            while repete<=2: 
+                print(process)
+                time.sleep(1)
+                repete+=1
+
+        #ternário
+            message=f'\nO restaurante {name_restaurant} foi ativado.' if restaurant['ativo'] else f'\nO restaurante {name_restaurant} foi desativado.' 
+            print(message)
     if not share_restaurant:
         print('Seu restaurante não está no sistema')
 
